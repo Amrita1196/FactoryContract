@@ -9,6 +9,7 @@ contract FactoryContract {
     function createContract(uint256 initialValue) public {
         ChildContract newContract = new ChildContract(initialValue);
         deployedContracts.push(newContract);
+        return deployedContracts;
     }
 
     function getDeployedContracts() public view returns (ChildContract[] memory) {
