@@ -7,6 +7,8 @@ const { AccountId,
   ContractExecuteTransaction,
   ContractCallQuery,
   Hbar,
+  EvmAddress,
+  ContractId,
   ContractCreateFlow, } = require("@hashgraph/sdk");
 require("dotenv").config();
 const fs = require("fs");
@@ -43,6 +45,7 @@ async function deployFactoryContract() {
   const contractId = contractInstantiateRx.contractId;
   console.log("contract id is fine");
   const contractAddress = contractId.toSolidityAddress();
+
   console.log("hi");
   console.log(`- The smart contract ID is: ${contractId} \n`);
   console.log(`- The smart contract ID in Solidity format is: ${contractAddress} \n`);
@@ -70,7 +73,7 @@ async function deployFactoryContract() {
   const contractQueryResult1 = contractQuerySubmit1.getUint256(0);
   const conversion = contractQueryResult1.toSolidityAddress;
   console.log(`- Here's the address of the deployed contract ${contractQueryResult1} \n`);
-
+  console.log(`- Here's the address of the deployed contract ${conversion} \n`);
   
 
   // // Deploy the Child Contract
